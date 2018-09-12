@@ -32,7 +32,8 @@ int main (int argc, char** argv)
     	/* store the value into an array */
     	if (size >= sz) {
     		int* tmp = (int *) malloc(sizeof(int) * (sz * 2));
-    		for (int i = 0; i < sz; i++) {
+    		int i = 0;
+    		for (i = 0; i < sz; i++) {
     			tmp[i] = firstArray[i];
     		}
     		free(firstArray);
@@ -53,12 +54,12 @@ int main (int argc, char** argv)
 		
 	// testing
 	printf("\nFirst Array:\t\t\t");
-	for (int i = 0; i < size; i++) {
+	for (i = 0; i < size; i++) {
 		printf("%d ", firstArray[i]);
 	}
 	printf("\n");
 	printf("Second Array (Copied):\t\t");
-	for (int i = 0; i < size; i++) {
+	for (i = 0; i < size; i++) {
 		printf("%d ", secondArray[i]);
 	}
 	printf("\n"); 
@@ -118,7 +119,8 @@ int main (int argc, char** argv)
 
 /* makeArrayCopy */
 void makeArrayCopy(int fromArray[], int toArray[], int size) {
-	for (int i = 0; i < size; i++) {
+	int i;
+	for (i = 0; i < size; i++) {
 		//*(toArray + i) = fromArray[i];
 		toArray[i] = fromArray[i];
 	}
@@ -126,10 +128,11 @@ void makeArrayCopy(int fromArray[], int toArray[], int size) {
 
 /* myFavoriteSort */
 void myFavoriteSort(int arr[], int size) {
-	for (int j = 0; j < size - 1; j++) {
-		for (int i = 0; i < size - j - 1; i++) {
+	int i, j, temp;
+	for (j = 0; j < size - 1; j++) {
+		for (i = 0; i < size - j - 1; i++) {
 			if (arr[i] > arr[i+1]) {
-				int temp = arr[i];
+				temp = arr[i];
 				arr[i] = arr[i+1];
 				arr[i+1] = temp;
 			} 
@@ -180,7 +183,8 @@ int binSearch(int arr[], int size, int target, int *numComparisons) {
 
 /* helper print function */
 void printArray(int arr[], int size) {
-	for (int i = 0; i < size; i++) {
+	int i;
+	for (i = 0; i < size; i++) {
 		printf("%d ", arr[i]);
 	}
 	printf("\n");
